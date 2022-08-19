@@ -2,18 +2,18 @@
   async function spectrumChannelOverlay(imgChannel){
   var canvas = await document.getElementById("cane")
   var ctx = canvas.getContext("2d");
-  var img = new Image(512,512)
-  var img2 = new Image(30,30)
+  var img = await new Image(512,512)
+  var img2 = await new Image(30,30)
   img2.crossOrigin = "anonymous";
   img.crossOrigin = "anonymous";
   img.height=512
-  img.src=imgChannel
+  await img.src=imgChannel
   img2.height=30
   img2.src="https://cdn.discordapp.com/app-assets/951615885922148412/951645722267250838.png"
-  ctx.drawImage(img, 0, 0);
-  roundedImage(20,20,100,100,14,ctx)
+  await ctx.drawImage(img, 0, 0,512,512);
+  await roundedImage(20,20,100,100,14,ctx)
   ctx.clip()
-  ctx.drawImage(img2, 20,20,100,100)
+  await ctx.drawImage(img2, 20,20,100,100)
   ctx.restore()
   var data =await canvas.toDataURL("image/png");document.getElementById("imgforend").src=data;
   return data
