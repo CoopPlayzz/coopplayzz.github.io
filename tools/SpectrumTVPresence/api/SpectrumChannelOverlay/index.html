@@ -35,4 +35,4 @@ function roundedImage(x,y,width,height,radius,ctx){
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 async function e(){if(urlParams.has("channelImgUrl")){var dataUrl = await spectrumChannelOverlay(urlParams.get("channelImgUrl"));}}
-e()//console.log(queryString);  </script></head><body><h4>Canvas</h4><br /><canvas id="cane" height="512" width="512"></canvas><br /><h4>img</h4><br /><img id="imgforend">dont support img</img><br /><h4>raw text</h4><br /><span id="textforend"></span></body></html>
+//console.log(queryString);  </script></head><body onload="e()"><h4>Canvas</h4><br /><canvas id="cane" height="512" width="512"></canvas><br /><h4>img</h4><br /><img id="imgforend">dont support img</img><br /><h4>raw text</h4><br /><span id="textforend"></span></body></html>
