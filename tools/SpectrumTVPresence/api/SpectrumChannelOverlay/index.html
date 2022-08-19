@@ -33,5 +33,5 @@ function roundedImage(x,y,width,height,radius,ctx){
   
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-async function e(){if(urlParams.has("channelImgUrl")){var dataUrl = await spectrumChannelOverlay(urlParams.get("channelImgUrl"));document.innerHTML='{"dataUrl": "'+dataUrl+'"}';}}
+async function e(){if(urlParams.has("channelImgUrl")){var dataUrl = await spectrumChannelOverlay(urlParams.get("channelImgUrl"));document.getElementsByTagName("body")[0].innerHTML='{"dataUrl": "'+dataUrl+'"}';}}
 e()//console.log(queryString);  </script></head><body></body></html>
