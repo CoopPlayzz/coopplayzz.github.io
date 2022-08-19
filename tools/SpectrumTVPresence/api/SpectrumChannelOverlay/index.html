@@ -1,5 +1,5 @@
 <html><head><script>
-  function spectrumChannelOverlay(imgChannel: string){
+  function spectrumChannelOverlay(imgChannel){
   var canvas = document.createElement("canvas");canvas.width=512;canvas.height=512;
   var ctx = canvas.getContext("2d");
   var img = new Image(512,512)
@@ -15,7 +15,7 @@
   ctx.restore()
   return canvas.toDataURL("image/png");
 }
-function roundedImage(x: number,y: number,width: number,height: number,radius: number,ctx: CanvasRenderingContext2D){
+function roundedImage(x,y,width,height,radius,ctx){
   ctx.beginPath();
   ctx.moveTo(x + radius, y);
   ctx.lineTo(x + width - radius, y);
