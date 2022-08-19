@@ -4,6 +4,8 @@
   var ctx = canvas.getContext("2d");
   var img = new Image(512,512)
   var img2 = new Image(30,30)
+  img2.crossOrigin = "anonymous";
+  img.crossOrigin = "anonymous";
   img.height=512
   img.src=imgChannel
   img2.height=30
