@@ -1,0 +1,35 @@
+<html><head><script>
+  function spectrumChannelOverlay(imgChannel: string){
+  var canvas = document.createElement("canvas");canvas.width=512;canvas.height=512;
+  var ctx = canvas.getContext("2d");
+  var img = new Image(512,512)
+  var img2 = new Image(30,30)
+  img.height=512
+  img.src=imgChannel
+  img2.height=30
+  img2.src="https://cdn.discordapp.com/app-assets/951615885922148412/951645722267250838.png"
+  ctx.drawImage(img, 0, 0);
+  roundedImage(20,20,100,100,14,ctx)
+  ctx.clip()
+  ctx.drawImage(img2, 20,20,100,100)
+  ctx.restore()
+  return canvas.toDataURL("image/png");
+}
+function roundedImage(x: number,y: number,width: number,height: number,radius: number,ctx: CanvasRenderingContext2D){
+  ctx.beginPath();
+  ctx.moveTo(x + radius, y);
+  ctx.lineTo(x + width - radius, y);
+  ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+  ctx.lineTo(x + width, y + height - radius);
+  ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+  ctx.lineTo(x + radius, y + height);
+  ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+  ctx.lineTo(x, y + radius);
+  ctx.quadraticCurveTo(x, y, x + radius, y);
+  ctx.closePath();
+}
+  
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+async function e(){if(urlParams.has("channelImgUrl")){var dataUrl = await spectrumChannelOverlay(urlParams.get("ChhannelImgUrl"));document.innerHTML='{"dataUrl": "'+dataUrl+'"}';}}
+e()//console.log(queryString);  </script></head><body></body></html>
